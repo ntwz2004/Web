@@ -140,7 +140,8 @@ form .signup-link a:hover {
 }
 
 .home-link button {
-  padding: 10px 100px;
+  text-align: center;
+  padding: 10px 50px;
   font-size: 15px;
   color: #fff;
   background-color: #16a085;

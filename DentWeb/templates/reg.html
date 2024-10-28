@@ -5,20 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <title>Login</title>
+  <title>Registration Form</title>
   <script>
-    async function loginUser(event) {
+    async function registerUser(event) {
       event.preventDefault(); // Prevent the form from submitting normally
 
       const formData = new FormData(event.target);
-      const response = await fetch("{{ url_for('login') }}", {
+      const response = await fetch("{{ url_for('reg') }}", {
         method: 'POST',
         body: formData,
       });
 
       const result = await response.json();
       if (result.success) {
-        window.location.href = "{{ url_for('main') }}"; // Redirect to main if successful
+        alert(result.message); // Show success message
+        window.location.href = "{{ url_for('login') }}"; // Redirect to login
       } else {
         alert(result.message); // Show error message
       }
@@ -27,24 +28,24 @@
 </head>
 <body>
   <div class="wrapper">
-    <div class="title"><span>Login</span></div>
-    <form onsubmit="loginUser(event)">
+    <div class="title"><span>Registration</span></div>
+    <form onsubmit="registerUser(event)">
       <div class="row">
         <i class="fas fa-user"></i>
-        <input type="text" name="email_or_username" placeholder="Email or Username" required />
+        <input type="text" name="username" placeholder="Username" required />
+      </div>
+      <div class="row">
+        <i class="fas fa-envelope"></i>
+        <input type="email" name="email" placeholder="Email" required />
       </div>
       <div class="row">
         <i class="fas fa-lock"></i>
         <input type="password" name="password" placeholder="Password" required />
       </div>
-      <div class="pass"><a href="#">Forgot password?</a></div>
       <div class="row button">
-        <input type="submit" value="Login" />
+        <input type="submit" value="Register" />
       </div>
-      <div class="home-link">
-        <button onclick="window.location.href='{{ url_for('index') }}'">Back to Home</button>
-      </div>
-      <div class="signup-link">Not a member? <a href="{{ url_for('reg') }}">Signup now</a></div>
+      <div class="signup-link">Already a member? <a href="{{ url_for('login') }}">Login now</a></div>
     </form>
   </div>
 </body>
