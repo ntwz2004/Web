@@ -25,7 +25,6 @@ class Patient(db.Model):
     name = db.Column(db.String(150), nullable=False)
     phone = db.Column(db.String(15), nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    
 
 @app.route('/')
 def index():
@@ -42,7 +41,6 @@ def login():
         else:
             return jsonify(success=False, message="Invalid username or password.")  # Return error message
     return render_template('login.html')
-
 
 @app.route('/reg', methods=['GET', 'POST'])
 def reg():
@@ -80,7 +78,7 @@ def add():
     return redirect(url_for('main'))  # Redirect to the main page
 
 with app.app_context():
-    db.create_all()
+    db.create_all()  
 
 if __name__ == '__main__':
     app.run(debug=True)

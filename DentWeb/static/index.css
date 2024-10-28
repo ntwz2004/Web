@@ -25,14 +25,22 @@ header .navbar {
 }
 
 .navbar .logo {
-  color: #fff;
-  font-weight: 600;
-  font-size: 2.1rem;
-  text-decoration: none;
+  display: flex; /* Allow for flexible alignment */
+  align-items: center; /* Center the logo vertically */
+}
+
+.navbar .logo img {
+  height: 50px; /* ขนาดโลโก้สำหรับคอมพิวเตอร์ */
+  max-height: 50px; /* ไม่ให้สูงเกิน */
+  width: auto; /* รักษาสัดส่วน */
+  margin-right: 10px; /* ระยะห่างระหว่างโลโก้และข้อความ */
 }
 
 .navbar .logo span {
   color: #C06B3E;
+  font-weight: 600; /* If you have text next to the logo */
+  font-size: 2.1rem;
+  text-decoration: none;
 }
 
 .navbar .menu-links {
@@ -130,7 +138,6 @@ header .navbar {
     font-size: 1.7rem;
   }
 
-    
   #hamburger-btn, #close-menu-btn {
     display: block;
   }
@@ -167,9 +174,14 @@ header .navbar {
     font-size: 2.3rem;
     line-height: 60px;
   }
-  
+
   .hero-section .content button {
     padding: 9px 18px;
   }
-  
+
+  .navbar .logo img {
+    height: 80px; /* ตั้งค่าความสูงที่ต้องการสำหรับมือถือ */
+    max-height: 80px; /* ไม่ให้สูงเกิน */
+    width: auto; /* รักษาสัดส่วน */
+  }
 }

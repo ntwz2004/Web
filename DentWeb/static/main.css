@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Use a default font */
+}
+
+header {
+    background-color: #333; /* Navbar background color */
+    color: white; /* Navbar text color */
+    padding: 10px 20px; /* Spacing around the navbar */
+}
+
+.navbar .menu-links {
+    list-style: none; /* Remove list bullets */
+    padding: 0; /* Remove padding */
+}
+
+.navbar .menu-links li {
+    display: inline; /* Inline display for horizontal menu */
+    margin-right: 20px; /* Spacing between items */
+}
+
+.navbar .menu-links a {
+    color: white; /* Menu link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    height: calc(100vh - 60px); /* Adjust for navbar height */
+    text-align: center; /* Center text inside */
+    margin: 20px; /* Optional margin */
+    padding: 20px; /* Optional padding */
+    background-color: #f9f9f9; /* Optional background color */
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.squares-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center squares horizontally */
+    gap: 20px; /* Space between squares */
+    margin-top: 20px; /* Space above squares */
+}
+
+.square {
+    width: 100px; /* Width of the square */
+    height: 100px; /* Height of the square */
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+}
