@@ -26,10 +26,10 @@
         <form action="{{ url_for('add') }}" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" required placeholder="Enter patient name">
+                <input type="text" id="name" name="name" required placeholder="Enter name">
                 
                 <label for="surname">Surname</label>
-                <input type="text" id="surname" name="surname" required placeholder="Enter patient surname">
+                <input type="text" id="surname" name="surname" required placeholder="Enter surname">
             </div>
             
             <div class="form-group">
@@ -41,8 +41,8 @@
                 <label for="diagnosis">Diagnosis</label>
                 <input type="text" id="diagnosis" name="diagnosis" placeholder="Enter diagnosis">
                 
-                <label for="icd10">ICD-10 Code</label>
-                <input type="text" id="icd10" name="icd10" placeholder="Enter ICD-10 code">
+                <label for="icd10">ICD-10</label>
+                <input type="text" id="icd10" name="icd10" placeholder="Enter ICD-10">
                 
                 <button type="button" class="add-button">+</button> <!-- ปุ่มเพิ่ม -->
             </div>
@@ -50,10 +50,12 @@
             <div class="form-group">
                 <label for="visit_type">Type of Visit</label>
                 <select id="visit_type" name="visit_type" required>
+                    <option value="" disabled selected>Please select a visit type</option> <!-- ข้อความแนะนำ -->
                     <option value="New patient">New Patient</option>
                     <option value="Follow up">Follow Up</option>
                 </select>
             </div>
+            
             
             <div class="form-group">
                 <label for="date">Date</label>
@@ -61,6 +63,7 @@
             </div>
             
             <button type="submit">Add Patient</button>
+            <button type="reset" class="reset-button">Reset</button> <!-- ปุ่มรีเซ็ต -->
         </form>
     </main>
 
@@ -75,8 +78,8 @@
                 <label for="diagnosis">Diagnosis</label>
                 <input type="text" name="diagnosis" placeholder="Enter diagnosis">
                 
-                <label for="icd10">ICD-10 Code</label>
-                <input type="text" name="icd10" placeholder="Enter ICD-10 code">
+                <label for="icd10">ICD-10</label>
+                <input type="text" name="icd10" placeholder="Enter ICD-10">
                 
                 <button type="button" class="remove-button">-</button>
             `;

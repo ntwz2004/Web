@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -85,7 +86,10 @@ def add():
         diagnosis = request.form.get('diagnosis')
         icd10 = request.form.get('icd10')
         visit_type = request.form.get('visit_type')
-        date = request.form.get('date')
+        date_str = request.form.get('date')  # Get the date as a string
+
+        # Convert the date string to a date object
+        date = datetime.strptime(date_str, '%Y-%m-%d').date()
 
         new_patient = Patient(
             name=name,
@@ -94,15 +98,15 @@ def add():
             diagnosis=diagnosis,
             icd10=icd10,
             visit_type=visit_type,
-            date=date
+            date=date  # Use the date object here
         )
         db.session.add(new_patient)
         db.session.commit()
 
-        flash("เพิ่มสำเร็จ!")
+        flash("เพิ่มสำเร็จ!")  # Flash a success message
         return redirect(url_for('main'))
     
-    # ถ้าเป็น GET ให้แสดงหน้า add.html
+    # If it's a GET request, render add.html
     return render_template('add.html')
 
 # สร้างตาราง

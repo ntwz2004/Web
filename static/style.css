@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-/* Reset default styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +7,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Body styles */
 body {
   display: flex;
   align-items: center;
@@ -19,7 +17,6 @@ body {
   overflow: hidden;
 }
 
-/* Wrapper styles */
 .wrapper {
   max-width: 500px;
   width: 100%;
@@ -28,7 +25,6 @@ body {
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 }
 
-/* Title styles */
 .wrapper .title {
   height: 120px;
   background: #16a085;
@@ -41,19 +37,16 @@ body {
   justify-content: center;
 }
 
-/* Form styles */
 .wrapper form {
   padding: 25px 35px;
 }
 
-/* Row styles */
 .wrapper form .row {
   height: 60px;
   margin-top: 15px;
   position: relative;
 }
 
-/* Input field styles */
 .wrapper form .row input {
   height: 100%;
   width: 100%;
@@ -73,7 +66,6 @@ form .row input::placeholder {
   color: #999;
 }
 
-/* Icon styles */
 .wrapper form .row i {
   position: absolute;
   width: 55px;
@@ -88,7 +80,6 @@ form .row input::placeholder {
   justify-content: center;
 }
 
-/* Password link styles */
 .wrapper form .pass {
   margin-top: 12px;
 }
@@ -103,25 +94,21 @@ form .row input::placeholder {
   text-decoration: underline;
 }
 
-/* Button styles */
 .wrapper form .button input {
   margin-top: 20px;
   color: #fff;
   font-size: 20px;
   font-weight: 500;
-  padding: 15px; /* เพิ่ม padding สำหรับปุ่ม */
+  padding-left: 0px;
   background: #16a085;
-  border: none; /* ไม่มีกรอบ */
-  border-radius: 5px; /* มุมมน */
+  border: 1px solid #16a085;
   cursor: pointer;
-  width: 100%; /* ปรับให้ปุ่มมีความกว้างเต็มที่ */
 }
 
 form .button input:hover {
   background: #12876f;
 }
 
-/* Signup link styles */
 .wrapper form .signup-link {
   text-align: center;
   margin-top: 45px;
@@ -137,7 +124,16 @@ form .signup-link a:hover {
   text-decoration: underline;
 }
 
-/* Home link styles */
+.wrapper .title span {
+  color: #fff;
+  font-weight: bold;
+}
+
+.wrapper form .row i {
+  background: #16a085;
+  color: #fff;
+}
+
 .home-link {
   text-align: center;
   margin-top: 40px;

@@ -39,7 +39,6 @@ h2 {
 .form-group select,
 .diagnosis-group input {
     flex: 1; /* ให้ฟิลด์ใช้ความกว้างทั้งหมด */
-    height: 40px; /* กำหนดความสูงที่เท่ากัน */
     padding: 10px; /* Inner padding */
     border: 1px solid #ddd; /* Border style */
     border-radius: 4px; /* มุมโค้ง */
@@ -83,7 +82,7 @@ button {
     background-color: #1abc9c; /* สีพื้นหลังสำหรับปุ่มหลัก */
     color: white;
     border: none;
-    border-radius: 5px; /* แก้ไข border-radius ให้มีค่า */
+    border-radius: px;
     padding: 12px 20px; /* ขนาด padding ของปุ่มหลัก */
     font-size: 1rem; /* ขนาดฟอนต์ของปุ่มหลัก */
     transition: background-color 0.3s; /* Transition for hover effect */
@@ -91,4 +90,18 @@ button {
 
 button:hover {
     background-color: #16a085; /* เปลี่ยนสีเมื่อเลื่อนเมาส์ไปที่ปุ่มหลัก */
+}
+
+.reset-button {
+    background: #e74c3c; /* สีพื้นหลัง */
+    color: #fff; /* สีข้อความ */
+    padding: 12px 20px; /* การจัดการพื้นที่ */
+    border: none; /* ไม่มีกรอบ */
+    border-radius: 6px; /* มุมโค้ง */
+    cursor: pointer; /* แสดงเป็นมือเมื่อชี้ไปที่ปุ่ม */
+    transition: background 0.2s; /* การเปลี่ยนสีเมื่อมีการโฮเวอร์ */
+}
+
+.reset-button:hover {
+    background: #c0392b; /* เปลี่ยนสีเมื่อโฮเวอร์ */
 }
