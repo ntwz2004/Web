@@ -1,0 +1,94 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    font-family: Arial, sans-serif; /* ฟอนต์ที่ใช้ในหน้า */
+}
+
+.form-container {
+    max-width: 900px;
+    margin: 80px auto; /* ขยับฟอร์มลง */
+    padding: 50px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px; /* ระยะห่างจากหัวข้อ */
+    color: #1abc9c; /* สีของหัวข้อ */
+}
+
+.form-group,
+.diagnosis-group {
+    margin-bottom: 20px; /* Space between form groups */
+    display: flex; /* ใช้ flexbox สำหรับ layout */
+    align-items: center; /* Align items vertically */
+}
+
+.form-group label,
+.diagnosis-group label {
+    width: 150px; /* ความกว้างสำหรับ labels */
+    margin-right: 10px; /* เพิ่มระยะห่างระหว่าง label และ input */
+    font-weight: 600; /* ตัวหนา */
+}
+
+.form-group input,
+.form-group select,
+.diagnosis-group input {
+    flex: 1; /* ให้ฟิลด์ใช้ความกว้างทั้งหมด */
+    height: 40px; /* กำหนดความสูงที่เท่ากัน */
+    padding: 10px; /* Inner padding */
+    border: 1px solid #ddd; /* Border style */
+    border-radius: 4px; /* มุมโค้ง */
+    font-size: 1rem; /* ขนาดฟอนต์ */
+    transition: border-color 0.3s; /* Transition for focus effect */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.diagnosis-group input:focus {
+    border-color: #1abc9c; /* เปลี่ยนสีขอบเมื่อ focus */
+}
+
+.add-button,
+.remove-button {
+    width: 30px; /* กำหนดความกว้าง */
+    height: 30px; /* กำหนดความสูง */
+    color: white; /* สีตัวอักษร */
+    border: none; /* ไม่มีขอบ */
+    border-radius: 5px; /* มุมโค้ง */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อชี้ที่ปุ่ม */
+    padding: 0; /* ไม่มี padding */
+    font-size: 16px; /* ขนาดฟอนต์ */
+    display: flex; /* ใช้ flexbox */
+    align-items: center; /* จัดแนวกลางแนวตั้ง */
+    justify-content: center; /* จัดแนวกลางแนวนอน */
+    margin-left: 10px; /* Space to the left of the add button */
+}
+
+.add-button {
+    background: #16a085; /* สีพื้นหลังสำหรับปุ่มเพิ่ม */
+}
+
+.remove-button {
+    background: #e74c3c; /* สีพื้นหลังสำหรับปุ่มลบ */
+}
+
+button {
+    cursor: pointer;
+    margin-top: 20px; /* ระยะห่างระหว่างปุ่มและฟิลด์ */
+    background-color: #1abc9c; /* สีพื้นหลังสำหรับปุ่มหลัก */
+    color: white;
+    border: none;
+    border-radius: 5px; /* แก้ไข border-radius ให้มีค่า */
+    padding: 12px 20px; /* ขนาด padding ของปุ่มหลัก */
+    font-size: 1rem; /* ขนาดฟอนต์ของปุ่มหลัก */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+button:hover {
+    background-color: #16a085; /* เปลี่ยนสีเมื่อเลื่อนเมาส์ไปที่ปุ่มหลัก */
+}
