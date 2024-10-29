@@ -30,10 +30,10 @@ header .navbar {
 }
 
 .navbar .logo img {
-  height: 50px; /* ขนาดโลโก้สำหรับคอมพิวเตอร์ */
-  max-height: 50px; /* ไม่ให้สูงเกิน */
-  width: auto; /* รักษาสัดส่วน */
-  margin-right: 10px; /* ระยะห่างระหว่างโลโก้และข้อความ */
+  height: 50px; /* Size of the logo for computers */
+  max-height: 50px; /* Prevent exceeding */
+  width: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Space between logo and text */
 }
 
 .navbar .logo span {
@@ -180,8 +180,42 @@ header .navbar {
   }
 
   .navbar .logo img {
-    height: 80px; /* ตั้งค่าความสูงที่ต้องการสำหรับมือถือ */
-    max-height: 80px; /* ไม่ให้สูงเกิน */
-    width: auto; /* รักษาสัดส่วน */
+    height: 50px; 
+    max-height: 50px;
+    width: auto;
+    margin-right: 10px;
   }
+}
+
+/* Table styles */
+.table-container {
+  overflow-x: auto; /* Enables horizontal scrolling */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow under the table */
+  margin: 20px 0; /* Space around the table */
+}
+
+table {
+  width: 100%; /* Set table width */
+  border-collapse: collapse; /* Combine cell borders */
+  margin-top: 20px; /* Top margin */
+}
+
+th, td {
+  padding: 12px; /* Cell padding */
+  text-align: left; /* Align text to the left */
+  border: 1px solid #ddd; /* Cell borders */
+}
+
+th {
+  background-color: #1abc9c; /* Header background color */
+  color: white; /* Header text color */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Even row background color */
+}
+
+tr:hover {
+  background-color: #d9f5f0; /* Row hover background color */
 }

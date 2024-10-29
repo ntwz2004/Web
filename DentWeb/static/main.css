@@ -4,7 +4,7 @@ body {
 }
 
 header {
-    background-color: #333; /* Navbar background color */
+    background-color: #1abc9c; /* Navbar background color */
     color: white; /* Navbar text color */
     padding: 10px 20px; /* Spacing around the navbar */
 }
@@ -22,6 +22,11 @@ header {
 .navbar .menu-links a {
     color: white; /* Menu link color */
     text-decoration: none; /* Remove underline */
+    transition: color 0.2s ease; /* Smooth color transition */
+}
+
+.navbar .menu-links a:hover {
+    color: #C06B3E; /* Hover color change */
 }
 
 .center-content {
@@ -50,4 +55,72 @@ header {
     height: 100px; /* Height of the square */
     border-radius: 8px; /* Optional rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    background-color: #fff; /* Background color for squares */
+    display: flex; /* Center content inside the square */
+    align-items: center;
+    justify-content: center;
+    font-weight: bold; /* Optional text style */
+}
+
+/* Table styles */
+.table-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow under the table */
+    margin: 20px 0; /* Space around the table */
+}
+
+table {
+    width: 100%; /* Set table width */
+    border-collapse: collapse; /* Combine cell borders */
+    margin-top: 20px; /* Top margin */
+}
+
+th, td {
+    padding: 12px; /* Cell padding */
+    text-align: left; /* Align text to the left */
+    border: 1px solid #ddd; /* Cell borders */
+}
+
+th {
+    background-color: #1abc9c; /* Header background color */
+    color: white; /* Header text color */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Even row background color */
+}
+
+tr:hover {
+    background-color: #d9f5f0; /* Row hover background color */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .center-content {
+        height: auto; /* Allow content to grow */
+        padding: 10px; /* Less padding for mobile */
+    }
+
+    .squares-container {
+        flex-wrap: wrap; /* Allow squares to wrap */
+        gap: 10px; /* Adjust spacing between squares */
+    }
+
+    .square {
+        width: 80px; /* Smaller square size for mobile */
+        height: 80px; /* Adjust height for mobile */
+    }
+
+    table {
+        font-size: 14px; /* Smaller font size for table */
+    }
+
+    th, td {
+        padding: 10px; /* Smaller padding for mobile */
+    }
 }
