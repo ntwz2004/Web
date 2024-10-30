@@ -37,6 +37,13 @@ class Patient(db.Model):
     visit_type = db.Column(db.String(50), nullable=False)  # ประเภทการเยี่ยมชม
     date = db.Column(db.Date, nullable=False)  # วันที่
     
+class Diagnosis(db.Model):
+    __bind_key__ = 'patients'  # ใช้ฐานข้อมูลผู้ป่วย
+    id = db.Column(db.Integer, primary_key=True)
+    patient_id = db.Column(db.Integer, db.ForeignKey('patient.id'), nullable=False)
+    diagnosis = db.Column(db.String(255), nullable=True)  # การวินิจฉัย
+    icd10 = db.Column(db.String(10), nullable=True)  # รหัส ICD-10    
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -87,30 +94,33 @@ def add():
         name = request.form.get('name')
         surname = request.form.get('surname')
         dental_num = request.form.get('dental_num')
-        diagnosis = request.form.get('diagnosis')
-        icd10 = request.form.get('icd10')
         visit_type = request.form.get('visit_type')
         date_str = request.form.get('date')  # Get the date as a string
-
-        # Convert the date string to a date object
         date = datetime.strptime(date_str, '%Y-%m-%d').date()
 
+        # Add the new patient
         new_patient = Patient(
             name=name,
             surname=surname,
             dental_num=dental_num,
-            diagnosis=diagnosis,
-            icd10=icd10,
             visit_type=visit_type,
-            date=date  # Use the date object here
+            date=date
         )
         db.session.add(new_patient)
         db.session.commit()
 
-        flash("เพิ่มสำเร็จ!")  # Flash a success message
+        # Add diagnoses for this patient
+        diagnoses = request.form.getlist('diagnosis[]')
+        icd10_codes = request.form.getlist('icd10[]')
+        
+        for diagnosis_text, icd10_code in zip(diagnoses, icd10_codes):
+            new_diagnosis = Diagnosis(patient_id=new_patient.id, diagnosis=diagnosis_text, icd10=icd10_code)
+            db.session.add(new_diagnosis)
+
+        db.session.commit()
+        flash("เพิ่มข้อมูลผู้ป่วยและการวินิจฉัยสำเร็จ!")
         return redirect(url_for('main'))
     
-    # If it's a GET request, render add.html
     return render_template('add.html')
 
 # สร้างตาราง
