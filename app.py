@@ -77,6 +77,10 @@ def main():
     patients = Patient.query.all()  # ดึงข้อมูลผู้ป่วยทั้งหมด
     return render_template('main.html', patients=patients)
 
+@app.route('/search')
+def search():
+    return render_template('search.html')
+
 @app.route('/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
