@@ -31,12 +31,21 @@ h2 {
 .form-group label,
 .diagnosis-group label {
     width: 150px; /* ความกว้างสำหรับ labels */
-    margin-right: 10px; /* เพิ่มระยะห่างระหว่าง label และ input */
+    margin-right: 5px; /* เพิ่มระยะห่างระหว่าง label และ input */
     font-weight: 600; /* ตัวหนา */
 }
 
 .form-group input,
 .form-group select,
+.diagnosis-group input {
+    flex: 1; /* ให้ฟิลด์ใช้ความกว้างทั้งหมด */
+    padding: 10px; /* Inner padding */
+    border: 1px solid #ddd; /* Border style */
+    border-radius: 4px; /* มุมโค้ง */
+    font-size: 1rem; /* ขนาดฟอนต์ */
+    transition: border-color 0.3s; /* Transition for focus effect */
+}
+
 .diagnosis-group input {
     flex: 1; /* ให้ฟิลด์ใช้ความกว้างทั้งหมด */
     padding: 10px; /* Inner padding */
@@ -74,6 +83,9 @@ h2 {
 
 .remove-button {
     background: #e74c3c; /* สีพื้นหลังสำหรับปุ่มลบ */
+}
+.remove-button:hover{
+    background: #ff0000; /* สีพื้นหลังสำหรับปุ่มลบ */
 }
 
 button {
