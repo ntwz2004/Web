@@ -6,6 +6,8 @@ body {
     font-family: Arial, sans-serif; /* ฟอนต์ที่ใช้ในหน้า */
 }
 
+
+
 .form-container {
     max-width: 900px;
     margin: 80px auto; /* ขยับฟอร์มลง */
@@ -21,6 +23,11 @@ h2 {
     color: #1abc9c; /* สีของหัวข้อ */
 }
 
+label {
+    display: block; /* ทำให้ label เป็น block element */
+    margin-left: 20px; /* ระยะห่างด้านล่างของ label */
+}
+
 .form-group,
 .diagnosis-group {
     margin-bottom: 20px; /* Space between form groups */
@@ -31,7 +38,7 @@ h2 {
 .form-group label,
 .diagnosis-group label {
     width: 150px; /* ความกว้างสำหรับ labels */
-    margin-right: 5px; /* เพิ่มระยะห่างระหว่าง label และ input */
+    margin-right: -20px; /* เพิ่มระยะห่างระหว่าง label และ input */
     font-weight: 600; /* ตัวหนา */
 }
 
@@ -63,8 +70,8 @@ h2 {
 
 .add-button,
 .remove-button {
-    width: 30px; /* กำหนดความกว้าง */
-    height: 30px; /* กำหนดความสูง */
+    width: 40px; /* กำหนดความกว้าง */
+    height: 40px; /* กำหนดความสูง */
     color: white; /* สีตัวอักษร */
     border: none; /* ไม่มีขอบ */
     border-radius: 5px; /* มุมโค้ง */
@@ -75,6 +82,7 @@ h2 {
     align-items: center; /* จัดแนวกลางแนวตั้ง */
     justify-content: center; /* จัดแนวกลางแนวนอน */
     margin-left: 10px; /* Space to the left of the add button */
+    margin-top: 2px;
 }
 
 .add-button {
