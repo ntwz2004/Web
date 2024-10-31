@@ -81,6 +81,26 @@ def reg():
         return {"success": True, "message": "ลงทะเบียนสำเร็จ!"}, 200
     return render_template('reg.html')
 
+
+@app.route('/details/<string:dental_number>')
+def details(dental_number):
+    # ดึงข้อมูลการวินิจฉัยและรายละเอียดการเยี่ยมของผู้ป่วย
+    results = db.session.query(Patient, Diagnosis).filter(Patient.dental_num == dental_number).all()
+    
+    if not results: 
+        return jsonify([])
+
+    details_list = []
+    for patient, diagnosis in results:
+        details_list.append({
+            "date": patient.date.strftime("%Y-%m-%d"),
+            "diagnosis": diagnosis.diagnosis,
+            "icd_10": diagnosis.icd10,
+            "type_of_visit": patient.visit_type,
+        })
+    
+    return jsonify(details_list)
+
 @app.route('/main')
 def main():
     patients = Patient.query.all()

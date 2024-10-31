@@ -35,18 +35,17 @@
                 <option value="type_of_visit">Type of Visit</option>
                 <option value="date">Date</option>
             </select>
-        
+
             <input type="text" id="filter-input" name="filter_value" placeholder="Enter Name" style="display: inline;" onkeydown="handleEnter(event)" />
-            <select id="visit-type-select" style="display: none;" onchange="performSearch()">
+            <select id="visit-type-select" style="display: none;">
                 <option value="">Select Visit Type</option>
                 <option value="New patient">New Patient</option>
                 <option value="Follow up">Follow Up</option>
             </select>
-        
+
             <button type="button" class="button" onclick="performSearch()">Search</button>
-            <button type="button" class="reset-button"  onclick="resetFilters()">Reset</button>
+            <button type="button" class="reset-button" onclick="resetFilters()">Reset</button>
         </section>
-        
 
         <!-- Table to display search results -->
         <table class="result-table" id="result-table" style="display:none;">
@@ -62,7 +61,6 @@
                 </tr>
             </thead>
             <tbody id="table-body">
-            
             </tbody>
         </table>
     </main>
@@ -110,46 +108,44 @@
             }
         }
 
-        
-
         function performSearch() {
-    const filterType = document.getElementById("filter-type").value;
-    const filterValue = filterType === "type_of_visit" ? document.getElementById("visit-type-select").value : document.getElementById("filter-input").value;
-    const table = document.getElementById("result-table");
-    const tableBody = document.getElementById("table-body");
+            const filterType = document.getElementById("filter-type").value;
+            const filterValue = filterType === "type_of_visit" ? document.getElementById("visit-type-select").value : document.getElementById("filter-input").value;
+            const table = document.getElementById("result-table");
+            const tableBody = document.getElementById("table-body");
 
-    fetch('/search_results', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ filterType, filterValue })
-    })
-    .then(response => response.json())
-    .then(data => {
-        tableBody.innerHTML = "";
-        if (data.length > 0) {
-            table.style.display = "table";
-            data.forEach((item, index) => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${item.name}</td>
-                    <td>${item.surname}</td>
-                    <td>${item.dental_number}</td>
-                    <td>${item.diagnosis || ""}</td>  <!-- ใช้ค่าว่างถ้า diagnosis ไม่มีค่า -->
-                    <td>${item.icd_10 || ""}</td>     <!-- ใช้ค่าว่างถ้า icd_10 ไม่มีค่า -->
-                    <td>${item.type_of_visit}</td>
-                    <td>${item.date}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        } else {
-            table.style.display = "none";
-            alert("No results found.");
+            fetch('/search_results', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ filterType, filterValue })
+            })
+            .then(response => response.json())
+            .then(data => {
+                tableBody.innerHTML = "";
+                if (data.length > 0) {
+                    table.style.display = "table";
+                    data.forEach((item) => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${item.name}</td>
+                            <td>${item.surname}</td>
+                            <td>${item.dental_number}</td>
+                            <td>${item.diagnosis || ""}</td>  <!-- ใช้ค่าว่างถ้า diagnosis ไม่มีค่า -->
+                            <td>${item.icd_10 || ""}</td>     <!-- ใช้ค่าว่างถ้า icd_10 ไม่มีค่า -->
+                            <td>${item.type_of_visit}</td>
+                            <td>${item.date}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    table.style.display = "none";
+                    alert("No results found.");
+                }
+            })
+            .catch(error => console.error('Error:', error));
         }
-    })
-    .catch(error => console.error('Error:', error));
-}
 
         function resetFilters() {
             // Reset filter type to default
@@ -168,8 +164,5 @@
             }
         }
     </script>
-
-    
-    
 </body>
 </html>
