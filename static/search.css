@@ -21,19 +21,38 @@
     cursor: pointer;
     width: auto;
 }
+/* Result Table */
 .result-table {
-    width: 80%;
+    width: 90%;
     margin: 20px auto;
     border-collapse: collapse;
-    display: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
 }
 .result-table th, .result-table td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     text-align: left;
 }
 .result-table th {
     background-color: #1abc9c;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.result-table button {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.result-table button:hover {
+    background-color: #45a049;
 }
 
 button {
@@ -66,38 +85,155 @@ button:hover {
     background: #c0392b; /* เปลี่ยนสีเมื่อโฮเวอร์ */
 }
 
+/*edit*/
+
+/* Modal Overlay */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0; 
-    top: 0; 
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
 }
 
+/* Modal Content */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
+    background-color: #ffffff;
+    border-radius: 8px;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; 
+    width: 600px; /* ลดขนาดความกว้าง */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
     cursor: pointer;
+    color: #e74c3c;
 }
+
+/* Form Elements */
+.modal-content h2 {
+    color: #1abc9c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-content label {
+    font-size: 14px;
+    color: #333;
+}
+
+.modal-content .form-row {
+    display: flex;
+    gap: 10px; /* ระยะห่างระหว่าง input */
+    margin-top: 10px;
+}
+
+.modal-content .form-row label {
+    flex: 1;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.modal-content input[readonly] {
+    background-color: #f4f4f4;
+    color: #666;
+}
+
+/* Save Changes Button */
+.modal-content button {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #16a085;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.form-group {
+    display: flex; /* ใช้ flexbox เพื่อจัดแนว */
+    align-items: center; /* จัดแนวกลางแนวตั้ง */
+    margin-bottom: 20px; /* ระยะห่างระหว่างกลุ่มฟอร์ม */
+}
+
+.form-group label {
+    margin-right: 10px; /* ระยะห่างระหว่าง label และ input */
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-button:hover {
+    background-color: darkred; /* สีเข้มขึ้นเมื่อชี้เมาส์ */
+}
+
+/* Styles for the select dropdown */
+select {
+    width: 100%; /* ให้กว้างเต็มที่ */
+    padding: 10px; /* ระยะห่างด้านใน */
+    border: 1px solid #ccc; /* เส้นขอบ */
+    border-radius: 5px; /* มุมโค้ง */
+    font-size: 16px; /* ขนาดฟอนต์ */
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    transition: border-color 0.3s; /* เอฟเฟกต์การเปลี่ยนสีขอบ */
+}
+
+/* Change border color on focus */
+select:focus {
+    border-color: #4a90e2; /* เปลี่ยนสีเมื่อเลือก */
+    outline: none; /* ลบเส้นขอบที่เป็นดีฟอลต์ */
+}
+
+/* Style for the label */
+label {
+    font-weight: bold; /* ทำให้ฟอนต์หนา */
+    margin-bottom: 5px; /* ระยะห่างด้านล่าง */
+    display: block; /* ให้ label แสดงเป็นบล็อก */
+}
+
+/* Flex container for better alignment */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* ระยะห่างระหว่างบล็อก */
+}
+
 
