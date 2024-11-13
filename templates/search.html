@@ -51,7 +51,7 @@
                     <option value="date">Date</option>  
                 </select>
             
-                <input type="text" id="filter-input" name="filter_value" placeholder="Enter Name" style="display: inline;" />
+                <input type="text" id="filter-input" name="filter_value" placeholder="Enter Dental Number" style="display: inline;" />
             
                 <select id="visit-type-select" style="display: none;">
                     <option value="">Select Visit Type</option>
@@ -539,7 +539,7 @@
 
         function resetFilters() {
             // Reset filter type to default
-            document.getElementById("filter-type").value = "name";
+            document.getElementById("filter-type").value = "dental_number";
             updatePlaceholder(); // Update placeholder based on default filter type
             
             // Reset input fields
