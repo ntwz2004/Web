@@ -42,17 +42,17 @@
     text-transform: uppercase;
 }
 .result-table button {
-    padding: 6px 12px;
+    padding:7px 0px;
     font-size: 14px;
     color: white;
-    background-color: #4CAF50;
+    background-color: #1abc9c;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 .result-table button:hover {
-    background-color: #45a049;
+    background-color: #16a085;
 }
 
 button {
@@ -110,6 +110,50 @@ button:hover {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     animation: fadeIn 0.3s ease;
+    
+}
+
+/* สไตล์สำหรับปุ่ม + */
+.add-diagnosis-btn {
+    background-color: #1abc9c !important; /* สีพื้นหลังปุ่ม + */
+    color: white !important; /* สีตัวอักษรปุ่ม + */
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 10px !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+    width: 30px !important; /* ขนาดปุ่ม */
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.add-diagnosis-btn:hover {
+    background-color: #16a085 !important; /* สีเมื่อ hover สำหรับปุ่ม + */
+}
+
+/* สไตล์สำหรับปุ่ม - */
+.remove-diagnosis-btn {
+    background-color: #e74c3c !important; /* สีพื้นหลังปุ่ม - */
+    color: white !important; /* สีตัวอักษรปุ่ม - */
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 10px !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+    width: 30px !important; /* ขนาดปุ่ม */
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 5px !important;
+}
+
+.remove-diagnosis-btn:hover {
+    background-color: #c0392b !important; /* สีเมื่อ hover สำหรับปุ่ม - */
 }
 
 /* Close Button */
@@ -121,6 +165,7 @@ button:hover {
     cursor: pointer;
     color: #e74c3c;
 }
+
 
 /* Form Elements */
 .modal-content h2 {
@@ -236,4 +281,7 @@ label {
     gap: 10px; /* ระยะห่างระหว่างบล็อก */
 }
 
-
+button i {
+    font-size: 16px; /* กำหนดขนาดไอคอน */
+    color: #ffffff; /* กำหนดสีของไอคอนตามธีม */
+}
